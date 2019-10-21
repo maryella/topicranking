@@ -1,0 +1,23 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+table.topics {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+
+.topics td, th {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+
+.topics tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
