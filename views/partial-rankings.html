@@ -1,10 +1,36 @@
-
-
-<table class="topics">
+<!-- <table class="topics">
     ${topic_data.map(topic => 
         `<tr>
             <td>${topic.topic}</td> 
             <td>${topic.ranking}</td>
         </tr>`
     ).join('')}
+</table> -->
+
+<form action="/rankings/update" method="POST">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Topic</th>
+            <th>Current Ranking</th>
+        </tr>
+    </thead>
+    <tbody>
+    ${topic_data.map(topic => `
+        <tr>
+            <td class="topic-name">${topic.topic}</td> 
+            <td class="has-input">
+                ${ranking_data.map(ranking => `
+                    <label>
+                        ${ranking.level_description}
+                        <input type='radio' name="${topic.topic}" value="${ranking.id}" 
+                        ${(topic.ranking === ranking.id) ? 'checked' : ''}>
+                    </label>
+                `).join('')}
+            </td>
+        </tr>
+    `).join('')}
+    </tbody>
 </table>
+    <button type="submit">Update Rankings</button>
+</form>

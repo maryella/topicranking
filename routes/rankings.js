@@ -19,5 +19,15 @@ router.get("/", async function (req, res, next) {
       )
 })
 
+router.post("/update", (req, res) => {
+
+    for(let key in req.body) {
+        console.log("keys: ", key, " = ", req.body[key])
+      RankingModel.update(key, req.body[key]);
+    }
+  
+    res.status(200).redirect('/rankings');
+  });
+
 
 module.exports = router;
